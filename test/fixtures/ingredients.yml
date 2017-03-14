@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  food_group: MyString
+  dish: one
 
 two:
   name: MyString
-  food_group: MyString
+  dish: two

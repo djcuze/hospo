@@ -7,4 +7,4 @@ default: &default
 
 development:
   <<: *default
-  database: hospo_development
+  database: hospo_fresh_development
