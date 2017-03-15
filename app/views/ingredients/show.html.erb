@@ -4,3 +4,9 @@
   <strong>Name:</strong>
   <%= @ingredient.name %>
 </p>
+
+<p>
+  <strong><%= 'Recipes that use ' + @ingredient.name + ':' %></strong>
+    <!-- if @recipe contains @ingredient.name (that equals [this?].name)
+        print link_to @recipe.name -->
+</p>

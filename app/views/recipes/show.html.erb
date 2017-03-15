@@ -13,6 +13,7 @@
 
 <h2>Add an Ingredient:</h2>
 <%= form_for([@recipe, @recipe.ingredients.build]) do |f| %>
+    <!-- Validate Uniqueness & IF exists THEN add association -->
     <p>
       <%= f.label :name %><br>
       <%= f.text_field :name %>
