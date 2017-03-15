@@ -1,8 +1,15 @@
 $(document).ready(function () {
-    $('.context.example .ui.sidebar')
+    $('.ui.sidebar')
         .sidebar({
-            context: $('.context.example .bottom.segment')
+            context: $('body')
         })
         .sidebar('attach events', '.context.example .menu .item')
+    ;
+
+    $('.left.sidebar').first()
+        .sidebar('attach events', '.toggle.button')
+    ;
+    $('.toggle.button')
+        .removeClass('disabled')
     ;
 });
