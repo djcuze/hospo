@@ -5,8 +5,11 @@
   <%= @ingredient.name %>
 </p>
 
-<p>
-  <strong><%= 'Recipes that use ' + @ingredient.name + ':' %></strong>
-    <!-- if @recipe contains @ingredient.name (that equals [this?].name)
-        print link_to @recipe.name -->
-</p>
+<strong><%= 'Recipes that use ' + @ingredient.name + ':' %></strong>
+<% @ingredient.recipes.each do |recipe| %>
+    <ul>
+      <li>
+        <%= link_to recipe.name, recipe_path(recipe.id) %>
+      </li>
+    </ul>
+<% end %>
