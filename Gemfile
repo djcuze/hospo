@@ -11,6 +11,8 @@ gem 'pg', '0.18.4'
 gem 'reform'
 gem 'sendgrid-ruby'
 gem 'reform-rails'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+
 
 group :development, :test do
   gem 'byebug',  '9.0.0', platform: :mri
