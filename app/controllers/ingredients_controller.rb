@@ -4,6 +4,9 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.all
   end
 
+  def new
+    @ingredient = Ingredient.new
+  end
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = Ingredient.find_or_create_by(ingredient_params)
