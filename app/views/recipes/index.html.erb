@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="ui header">Recipes</h1>
+
+<table class="ui celled table">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Ingredients</th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @recipe.each do |recipe| %>
+      <tr>
+        <td><%= recipe.name %></td>
+        <td>
+          <ul>
+            <% recipe.ingredients.each do |ingredient| %>
+                <li>
+                  <%= ingredient.name %>
+                </li>
+            <% end %>
+          </ul>
+        </td>
+        <td>
+          <%= link_to 'Show', recipe, class: 'ui button' %>
+          <%= link_to 'Edit', edit_recipe_path(recipe), class: 'ui primary button' %>
+          <%= link_to 'Destroy', recipe, method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path, class: 'ui green button' %>

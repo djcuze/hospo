@@ -1,8 +1,8 @@
 class IngredientsController < ApplicationController
   def create
-    @dish = Dish.find(params[:dish_id])
-    @ingredient = @dish.ingredients.create(ingredient_params)
-    redirect_to dish_path(@dish)
+    @recipe = Recipe.find(params[:recipe_id])
+    @ingredient = @recipe.ingredients.create(ingredient_params)
+    redirect_to recipe_path(@recipe)
   end
 
   private

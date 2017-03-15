@@ -15,19 +15,19 @@ ActiveRecord::Schema.define(version: 20170314113105) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "dishes", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
-    t.integer  "dish_id"
+    t.integer  "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dish_id"], name: "index_ingredients_on_dish_id", using: :btree
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
   end
 
-  add_foreign_key "ingredients", "dishes"
+  create_table "recipes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "ingredients", "recipes"
 end
