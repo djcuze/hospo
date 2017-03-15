@@ -1,0 +1,32 @@
+<table class="ui celled table">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dishes</th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @ingredient.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.name %></td>
+        <td>
+          <ul>
+            <% ingredient.recipes.each do |recipe| %>
+                <li>
+                  <%= link_to recipe.name, recipe_path(recipe.id) %>
+                </li>
+            <% end %>
+          </ul>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_ingredient_path(ingredient), class: 'ui primary button' %>
+          <%= link_to 'Delete', ingredient, method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Ingredient', new_ingredient_path, class: 'ui green button' %>
