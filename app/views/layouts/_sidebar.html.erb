@@ -1,11 +1,9 @@
 <div class="ui inverted labeled icon left inline vertical sidebar menu">
 
-  <a class="item">
-    <i class="home icon"></i>
-    Recipes
-  </a>
-
-  <%= link_to 'Recipes', recipes_path, class: 'item' %>
+  <%= link_to recipes_path, class: 'item' do %>
+      <i class="home icon"></i>
+      Recipes
+  <% end %>
 
   <a class="item">
     <i class="block layout icon"></i>
