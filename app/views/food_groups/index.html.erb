@@ -1,0 +1,24 @@
+<h1>Food Groups</h1>
+<table class="ui celled table">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Ingredients</th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @food_group.each do |food_group| %>
+      <tr>
+        <td><%= link_to food_group.name, food_group_path(food_group.id) %></td>
+        <td>
+          <%= link_to 'Edit', edit_food_group_path(food_group), class: 'ui primary button' %>
+          <%= link_to 'Delete', food_group, method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Food Group', new_food_group_path, class: 'ui green button' %>
