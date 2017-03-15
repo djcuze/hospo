@@ -5,6 +5,11 @@ class IngredientsController < ApplicationController
     redirect_to recipe_path(@recipe)
   end
 
+  def show
+    # @recipe = Recipe.find(params[:recipe_id])
+    @ingredient = Ingredient.find(params[:id])
+  end
+
   private
   def ingredient_params
     params.require(:ingredient).permit(:name)

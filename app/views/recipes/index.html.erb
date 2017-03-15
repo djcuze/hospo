@@ -19,7 +19,7 @@
           <ul>
             <% recipe.ingredients.each do |ingredient| %>
                 <li>
-                  <%= ingredient.name %>
+                  <%= link_to ingredient.name, ingredient_path(ingredient.id) %>
                 </li>
             <% end %>
           </ul>
