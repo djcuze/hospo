@@ -1,0 +1,7 @@
+<h2>Ingredients:</h2>
+<% @recipe.ingredients.each do |ingredient| %>
+    <p>
+      <%= ingredient.name %>
+      <%= link_to 'Destroy', ingredient, method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>
+    </p>
+<% end %>

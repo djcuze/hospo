@@ -25,9 +25,8 @@
           </ul>
         </td>
         <td>
-          <%= link_to 'Show', recipe, class: 'ui button' %>
           <%= link_to 'Edit', edit_recipe_path(recipe), class: 'ui primary button' %>
-          <%= link_to 'Destroy', recipe, method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>
+          <%= link_to 'Delete', recipe, method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>
         </td>
       </tr>
   <% end %>

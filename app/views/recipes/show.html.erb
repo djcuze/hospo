@@ -4,12 +4,8 @@
   <strong>Name:</strong>
   <%= @recipe.name %>
 </p>
-<h2>Ingredients:</h2>
-<% @recipe.ingredients.each do |ingredient| %>
-    <p>
-      <%= ingredient.name %>
-    </p>
-<% end %>
+
+<%= render 'recipes/partials/ingredients_listing' %>
 
 <h2>Add an Ingredient:</h2>
 <%= form_for([@recipe, @recipe.ingredients.build]) do |f| %>
