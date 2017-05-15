@@ -8,6 +8,15 @@
 .ui.attached.segment {
   border: none;
 }
+
+a.button:hover, a.item:hover {
+  background-color: #0ea432 !important;
+}
+.menu .item::before {
+  background-color: #0ea432 !important;
+  opacity: 0.8;
+  width: 2px !important;
+}
 .content {
   max-width: 980px;
   margin: 0 auto;

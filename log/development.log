@@ -12497,3 +12497,343 @@ Processing by RecipesController#new as HTML
 Completed 200 OK in 61ms (Views: 59.9ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/recipes" for ::1 at 2017-05-15 15:43:00 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 63ms (Views: 60.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recipes/new" for ::1 at 2017-05-15 15:43:22 +1000
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (4.4ms)
+  Rendered recipes/new.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 58ms (Views: 56.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/recipes" for ::1 at 2017-05-15 15:43:33 +1000
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KLdSspSTD6S0M6y9ohg9cRd6dXilGFFJtQgF5YM8idfNstmvXqp1VcQG29qkuYLXRbHFhToUqy/2b7zY6CbUbw==", "recipe"=>{"name"=>"Tester", "description"=>"Something D'licious", "contains_gluten"=>"0", "contains_dairy"=>"1", "is_vegetarian"=>"1"}, "commit"=>"Create Recipe"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "created_at", "updated_at", "description", "contains_gluten", "contains_dairy", "is_vegetarian") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Tester"], ["created_at", 2017-05-15 05:43:33 UTC], ["updated_at", 2017-05-15 05:43:33 UTC], ["description", "Something D'licious"], ["contains_gluten", false], ["contains_dairy", true], ["is_vegetarian", true]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/recipes/5
+Completed 302 Found in 9ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/recipes/5" for ::1 at 2017-05-15 15:43:33 +1000
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  Rendered recipes/partials/_ingredients_listing.html.erb (1.4ms)
+  Rendered recipes/show.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+Completed 200 OK in 51ms (Views: 48.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 15:43:36 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  Rendered recipes/index.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 65ms (Views: 62.4ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/recipes/5" for ::1 at 2017-05-15 15:43:43 +1000
+Processing by RecipesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2l6SWspWsWD0OvqenYoMYIOdmJwCh3Jk+2djBRKCD4zAk9wfFR7BubzZaryH9GGOnrAD5ZusLAfDA+8EnEkzuA==", "id"=>"5"}
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "recipes_ingredients" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = $1[0m  [["id", 5]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/recipes
+Completed 302 Found in 6ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 15:43:43 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_sidebar.html.erb (0.4ms)
+Completed 200 OK in 56ms (Views: 54.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/recipes/2/edit" for ::1 at 2017-05-15 17:15:04 +1000
+Processing by RecipesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering recipes/edit.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (4.3ms)
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  Rendered recipes/partials/_ingredients_listing.html.erb (2.2ms)
+  Rendered recipes/edit.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_sidebar.html.erb (0.4ms)
+Completed 200 OK in 61ms (Views: 57.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ingredients" for ::1 at 2017-05-15 17:15:32 +1000
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipes_ingredients" ON "recipes"."id" = "recipes_ingredients"."recipe_id" WHERE "recipes_ingredients"."ingredient_id" = $1[0m  [["ingredient_id", 3]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipes_ingredients" ON "recipes"."id" = "recipes_ingredients"."recipe_id" WHERE "recipes_ingredients"."ingredient_id" = $1[0m  [["ingredient_id", 2]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipes_ingredients" ON "recipes"."id" = "recipes_ingredients"."recipe_id" WHERE "recipes_ingredients"."ingredient_id" = $1[0m  [["ingredient_id", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipes_ingredients" ON "recipes"."id" = "recipes_ingredients"."recipe_id" WHERE "recipes_ingredients"."ingredient_id" = $1[0m  [["ingredient_id", 5]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipes_ingredients" ON "recipes"."id" = "recipes_ingredients"."recipe_id" WHERE "recipes_ingredients"."ingredient_id" = $1[0m  [["ingredient_id", 6]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipes_ingredients" ON "recipes"."id" = "recipes_ingredients"."recipe_id" WHERE "recipes_ingredients"."ingredient_id" = $1[0m  [["ingredient_id", 7]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipes_ingredients" ON "recipes"."id" = "recipes_ingredients"."recipe_id" WHERE "recipes_ingredients"."ingredient_id" = $1[0m  [["ingredient_id", 8]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipes_ingredients" ON "recipes"."id" = "recipes_ingredients"."recipe_id" WHERE "recipes_ingredients"."ingredient_id" = $1[0m  [["ingredient_id", 9]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipes_ingredients" ON "recipes"."id" = "recipes_ingredients"."recipe_id" WHERE "recipes_ingredients"."ingredient_id" = $1[0m  [["ingredient_id", 10]]
+  Rendered ingredients/index.html.erb within layouts/application (16.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 65ms (Views: 61.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/food_groups" for ::1 at 2017-05-15 17:15:50 +1000
+Processing by FoodGroupsController#index as HTML
+  Rendering food_groups/index.html.erb within layouts/application
+  [1m[36mFoodGroup Load (0.5ms)[0m  [1m[34mSELECT "food_groups".* FROM "food_groups"[0m
+  Rendered food_groups/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 54ms (Views: 52.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:15:54 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (14.0ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 78ms (Views: 75.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:16:11 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_sidebar.html.erb (0.4ms)
+Completed 200 OK in 5683ms (Views: 5680.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:16:32 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 5179ms (Views: 5177.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:16:50 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 5435ms (Views: 5433.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:16:59 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 5381ms (Views: 5378.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:18:35 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (12.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 5238ms (Views: 5235.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:18:47 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 5352ms (Views: 5349.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:19:08 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (10.2ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_sidebar.html.erb (0.4ms)
+Completed 200 OK in 5366ms (Views: 5364.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:20:38 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 5262ms (Views: 5260.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:20:47 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 5070ms (Views: 5068.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:21:13 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 5236ms (Views: 5233.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:21:26 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 5236ms (Views: 5233.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:21:35 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 5129ms (Views: 5127.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/recipes/new" for ::1 at 2017-05-15 17:22:26 +1000
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (4.2ms)
+  Rendered recipes/new.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 56ms (Views: 54.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes" for ::1 at 2017-05-15 17:31:37 +1000
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" ASC[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipes_ingredients" ON "ingredients"."id" = "recipes_ingredients"."ingredient_id" WHERE "recipes_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (13.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 64ms (Views: 61.8ms | ActiveRecord: 1.1ms)
+
+
