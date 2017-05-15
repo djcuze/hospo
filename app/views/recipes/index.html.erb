@@ -1,44 +1,46 @@
 <%= provide(:title, 'Recipes') %>
-<p id="notice"><%= notice %></p>
+<div class="content">
+  <p id="notice"><%= notice %></p>
 
-<ul class="recipe">
-  <% @recipe.order(:id).each do |recipe| %>
-      <li>
-        <table class="ui celled table">
-          <tr>
-            <td class="three wide">
-              <%= image_tag('http://placehold.it/350x150', class: 'image') %>
-            </td>
-            <td class="four wide">
-              <h1><%= recipe.name %></h1>
-            </td>
-            <td>
-              <p><%= recipe.description %></p>
-              <span class="food-warning-indicator">
+  <ul class="recipe">
+    <% @recipe.order(:id).each do |recipe| %>
+        <li>
+          <table class="ui celled table">
+            <tr>
+              <td class="three wide">
+                <%= image_tag('http://placehold.it/350x150', class: 'image') %>
+              </td>
+              <td class="four wide">
+                <h1><%= recipe.name %></h1>
+              </td>
+              <td>
+                <p><%= recipe.description %></p>
+                <span class="food-warning-indicator">
                 <%= image_tag('icons/dairy.png') if recipe.contains_dairy? %>
-                <%= image_tag('icons/gluten.png') if recipe.contains_gluten? %>
-                <%= image_tag('icons/vegetarian.png') if recipe.is_vegetarian? %>
+                  <%= image_tag('icons/gluten.png') if recipe.contains_gluten? %>
+                  <%= image_tag('icons/vegetarian.png') if recipe.is_vegetarian? %>
               </span>
-            </td>
-          </tr>
-        </table>
-        <!-- Extended Information -->
-        <div class="information">
-          <h1>Ingredients</h1>
-          <ul>
-            <% recipe.ingredients.each do |ingredient| %>
-                <li>
-                  <%= link_to ingredient.name, ingredient_path(ingredient.id) %>
-                </li>
-            <% end %>
-          </ul>
-          <div class="edit-options">
-            <%= link_to 'Edit', edit_recipe_path(recipe), class: 'ui primary button' %>
-            <%= link_to 'Delete', recipe, method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>
+              </td>
+            </tr>
+          </table>
+          <!-- Extended Information -->
+          <div class="information">
+            <h1>Ingredients</h1>
+            <ul>
+              <% recipe.ingredients.each do |ingredient| %>
+                  <li>
+                    <%= link_to ingredient.name, ingredient_path(ingredient.id) %>
+                  </li>
+              <% end %>
+            </ul>
+            <div class="edit-options">
+              <%= link_to 'Edit', edit_recipe_path(recipe), class: 'ui primary button' %>
+              <%= link_to 'Delete', recipe, method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>
+            </div>
           </div>
-        </div>
-      </li>
-  <% end %>
-</ul>
-<br>
-<%= link_to 'New Recipe', new_recipe_path, class: 'ui green button new-recipe' %>
+        </li>
+    <% end %>
+  </ul>
+  <br>
+  <%= link_to 'New Recipe', new_recipe_path, class: 'ui green button new-recipe' %>
+</div>

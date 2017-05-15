@@ -8,35 +8,43 @@
 .ui.attached.segment {
   border: none;
 }
-
+.content {
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+}
 header {
-  background-color: #284080;
+  background-color: #1b1c1d;
   & + .banner {
     content: '';
     width: 100%;
     height: 300px;
     background: image_url('banner.jpg') no-repeat;
     background-size: cover;
+    .content {
+      padding: 20px 0;
+    }
     .title {
+      max-width: 980px;
       color: white;
       font-family: Helvetica, sans-serif;
       font-size: 80px;
-      margin: 25px 0 0 10%;
       text-transform: uppercase;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.69);
     }
   }
 }
 .logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-height: 150px;
   padding: 10px;
-  width: 60px !important;
-  display: inline-block;
-  float: left;
-  height: 100%;
-  vertical-align: middle;
-  & + p {
-    float: left;
+  p {
+    padding-left: 10px;
     color: white;
-    display: inline-block;
+    font-size: 44px;
+    font-family: 'Special Elite', serif;
   }
 }
 
