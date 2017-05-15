@@ -8,3 +8,21 @@ ul {
     margin: 6px 0;
   }
 }
+
+.ui.celled.table {
+  background-color: transparent !important;
+  border-collapse: separate;
+  tbody {
+    background-color: transparent !important;
+  }
+  tr {
+    padding: 10px 0;
+    background-color: transparent !important;
+    margin: 10px 0;
+  }
+  td {
+    background-color: white;
+    padding: 10px 0;
+    margin: 10px;
+  }
+}

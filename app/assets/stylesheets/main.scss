@@ -1,5 +1,12 @@
+.pusher, .pushable, body {
+  background-color: #1b1c1d !important;
+}
 .pusher.inside {
   padding: 30px;
+  background-color: #1b1c1d;
+}
+.ui.attached.segment {
+  border: none;
 }
 
 header {
@@ -20,11 +27,6 @@ header {
     }
   }
 }
-
-.pushable {
-  background-color: white !important;
-}
-
 .logo {
   padding: 10px;
   width: 60px !important;

@@ -5,7 +5,7 @@
   <tr>
     <th>Name</th>
     <th>Ingredients</th>
-    <th colspan="1"></th>
+    <th colspan="1" class="three wide"></th>
   </tr>
   </thead>
   <tbody>
@@ -21,7 +21,7 @@
             <% end %>
           </ul>
         </td>
-        <td>
+        <td >
           <%= link_to 'Edit', edit_recipe_path(recipe), class: 'ui primary button' %>
           <%= link_to 'Delete', recipe, method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>
         </td>
