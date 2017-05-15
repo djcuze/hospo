@@ -16,7 +16,7 @@
               <td>
                 <p><%= recipe.description %></p>
                 <span class="food-warning-indicator">
-                <%= image_tag('icons/dairy.png') if recipe.contains_dairy? %>
+                  <%= image_tag('icons/dairy.png') if recipe.contains_dairy? %>
                   <%= image_tag('icons/gluten.png') if recipe.contains_gluten? %>
                   <%= image_tag('icons/vegetarian.png') if recipe.is_vegetarian? %>
               </span>

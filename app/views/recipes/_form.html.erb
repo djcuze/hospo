@@ -1,35 +1,42 @@
 <%= form_for(@recipe) do |f| %>
-  <% if @recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+    <% if @recipe.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
-      <ul>
-      <% recipe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
+          <ul>
+            <% recipe.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
     <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field flex">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+    <div class="form break"></div>
+    <div class="field">
+      <%= image_tag('icons/gluten.png') %>
       <%= f.label :contains_gluten, "Contains Gluten" %>
-      <%= f.check_box :contains_gluten%>
-
+      <%= f.check_box :contains_gluten %>
+    </div>
+    <div class="field">
+      <%= image_tag('icons/dairy.png') %>
       <%= f.label :contains_dairy, "Contains Dairy" %>
-      <%= f.check_box :contains_dairy%>
-
+      <%= f.check_box :contains_dairy %>
+    </div>
+    <div class="field">
+      <%= image_tag('icons/vegetarian.png') %>
       <%= f.label :is_vegetarian, "Vegetarian" %>
-      <%= f.check_box :is_vegetarian%>
+      <%= f.check_box :is_vegetarian %>
     </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

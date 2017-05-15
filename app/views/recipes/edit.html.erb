@@ -1,17 +1,18 @@
-<h1>Editing Recipe</h1>
+<%= provide(:title, @recipe.name) %>
+  <div class="recipe edit content">
+    <h1>Editing Recipe</h1>
+    <%= render 'form', recipe: @recipe %>
+    <%= render 'recipes/partials/ingredients_listing' %>
+    <h2>Add an Ingredient:</h2>
+    <%= form_for([@recipe, @recipe.ingredients.build]) do |f| %>
+        <!-- Validate Uniqueness & IF exists THEN add association -->
+        <p>
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </p>
+        <%= f.submit %>
+    <% end %>
 
-<%= render 'form', recipe: @recipe %>
-<%= render 'recipes/partials/ingredients_listing' %>
-
-<h2>Add an Ingredient:</h2>
-<%= form_for([@recipe, @recipe.ingredients.build]) do |f| %>
-    <!-- Validate Uniqueness & IF exists THEN add association -->
-    <p>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </p>
-    <%= f.submit %>
-<% end %>
-
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+    <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+    <%= link_to 'Back', recipes_path %>
+  </div>
