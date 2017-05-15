@@ -1,28 +1,21 @@
-// Place all the styles related to the Dishes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-ul {
+ul.recipe {
+  max-width: 980px;
+  margin: 0 auto;
   list-style: none;
   padding: 0;
-  li{
-    margin: 6px 0;
+  li {
+    margin: 16px 0;
+    cursor: pointer;
   }
-}
-
-.ui.celled.table {
-  background-color: transparent !important;
-  border-collapse: separate;
-  tbody {
-    background-color: transparent !important;
+  .ui.table {
+    border-radius: 0;
+    td:first-of-type {
+      padding: 0;
+    }
   }
-  tr {
-    padding: 10px 0;
-    background-color: transparent !important;
-    margin: 10px 0;
-  }
-  td {
-    background-color: white;
-    padding: 10px 0;
-    margin: 10px;
+  td > .image {
+    width: 100%;
+    height: 100%;
+    float: left;
   }
 }
