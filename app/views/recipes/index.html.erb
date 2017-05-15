@@ -1,7 +1,5 @@
+<%= provide(:title, 'Recipes') %>
 <p id="notice"><%= notice %></p>
-
-<h1 class="ui header">Recipes</h1>
-
 <table class="ui celled table">
   <thead>
   <tr>
@@ -10,7 +8,6 @@
     <th colspan="1"></th>
   </tr>
   </thead>
-
   <tbody>
   <% @recipe.each do |recipe| %>
       <tr>

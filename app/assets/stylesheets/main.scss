@@ -3,7 +3,22 @@
 }
 
 header {
-  background-color: white;
+  background-color: #284080;
+  & + .banner {
+    content: '';
+    display: block;
+    float: left;
+    width: 100%;
+    height: 300px;
+    background: image_url('banner.jpg') no-repeat;
+    .title {
+      color: white;
+      font-family: Helvetica, sans-serif;
+      font-size: 80px;
+      margin: 25px 0 0 10%;
+      text-transform: uppercase;
+    }
+  }
 }
 
 .pushable {
@@ -12,7 +27,16 @@ header {
 
 .logo {
   padding: 10px;
-  width: 200px !important;
+  width: 60px !important;
+  display: inline-block;
+  float: left;
+  height: 100%;
+  vertical-align: middle;
+  & + p {
+    float: left;
+    color: white;
+    display: inline-block;
+  }
 }
 
 .ui.top.attached.menu {

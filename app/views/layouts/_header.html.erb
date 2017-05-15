@@ -1,5 +1,6 @@
 <header>
   <%= image_tag('foodoo_logo.png', class: 'ui small image logo') %>
+  <p>foodoo</p>
   <div class="ui inverted top attached menu">
     <a class="item toggle button">
       <i class="sidebar icon"></i>
@@ -7,3 +8,8 @@
     </a>
   </div>
 </header>
+<div class="banner">
+  <h1 class="banner title">
+    <%= yield :title %>
+  </h1>
+</div>
