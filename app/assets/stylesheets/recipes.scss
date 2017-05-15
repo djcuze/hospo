@@ -7,11 +7,22 @@ ul.recipe {
     margin: 16px 0;
     cursor: pointer;
     background-color: white;
+    position: relative;
   }
   .ui.table {
     border-radius: 0;
     td:first-of-type {
       padding: 0;
+    }
+    h1 {
+      font-family: 'Special Elite', serif;
+      font-size: 18px;
+      text-align: center;
+    }
+    p {
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-size: 18px;
+      margin: 0;
     }
   }
   td > .image {
@@ -31,4 +42,29 @@ ul.recipe {
       display: block;
     }
   }
+
+  // Food Warnings
+  .food-warning-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    height: 45px;
+    img {
+      height: 100%;
+    }
+  }
+  .edit-options {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+  }
+}
+
+.new-recipe {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 5px;
 }

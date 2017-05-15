@@ -2,20 +2,22 @@
 <p id="notice"><%= notice %></p>
 
 <ul class="recipe">
-  <% @recipe.each do |recipe| %>
+  <% @recipe.order(:id).each do |recipe| %>
       <li>
         <table class="ui celled table">
           <tr>
             <td class="three wide">
               <%= image_tag('http://placehold.it/350x150', class: 'image') %>
             </td>
-            <td class="four wide"><%= recipe.name %></td>
+            <td class="four wide">
+              <h1><%= recipe.name %></h1>
+            </td>
             <td>
-              <%= recipe.description %>
+              <p><%= recipe.description %></p>
               <span class="food-warning-indicator">
                 <%= image_tag('icons/dairy.png') if recipe.contains_dairy? %>
                 <%= image_tag('icons/gluten.png') if recipe.contains_gluten? %>
-                <%= image_tag('icons/vegetarian.png') if  recipe.is_vegetarian? %>
+                <%= image_tag('icons/vegetarian.png') if recipe.is_vegetarian? %>
               </span>
             </td>
           </tr>
@@ -39,4 +41,4 @@
   <% end %>
 </ul>
 <br>
-<%= link_to 'New Recipe', new_recipe_path, class: 'ui green button' %>
+<%= link_to 'New Recipe', new_recipe_path, class: 'ui green button new-recipe' %>
