@@ -1,38 +1,5 @@
 <%= provide(:title, 'Recipes') %>
 <p id="notice"><%= notice %></p>
-<!--<table class="ui celled table">-->
-<!--<thead>-->
-<!--<tr>-->
-<!--<th>Name</th>-->
-<!--<th>Ingredients</th>-->
-<!--<th colspan="1" class="three wide"></th>-->
-<!--</tr>-->
-<!--</thead>-->
-<!--<tbody>-->
-<!--
-<% @recipe.each do |recipe| %>-->
-    <!--<tr>-->
-    <!--<td><%= recipe.name %></td>-->
-    <!--<td>-->
-    <!--<ul>-->
-    <!--
-    <% recipe.ingredients.each do |ingredient| %>-->
-        <!--<li>-->
-        <!--<%= link_to ingredient.name, ingredient_path(ingredient.id) %>-->
-        <!--</li>-->
-        <!--
-    <% end %>-->
-    <!--</ul>-->
-    <!--</td>-->
-    <!--<td >-->
-    <!--<%= link_to 'Edit', edit_recipe_path(recipe), class: 'ui primary button' %>-->
-    <!--<%= link_to 'Delete', recipe, method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>-->
-    <!--</td>-->
-    <!--</tr>-->
-    <!--
-<% end %>-->
-<!--</tbody>-->
-<!--</table>-->
 
 <ul class="recipe">
   <% @recipe.each do |recipe| %>
@@ -43,13 +10,31 @@
               <%= image_tag('http://placehold.it/350x150', class: 'image') %>
             </td>
             <td class="four wide"><%= recipe.name %></td>
-            <td><%= recipe.description %></td>
-            <td class="three wide">
-              <%= link_to 'Edit', edit_recipe_path(recipe), class: 'ui primary button' %>
-              <%= link_to 'Delete', recipe, method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>
+            <td>
+              <%= recipe.description %>
+              <span class="food-warning-indicator">
+                <%= image_tag('icons/dairy.png') if recipe.contains_dairy? %>
+                <%= image_tag('icons/gluten.png') if recipe.contains_gluten? %>
+                <%= image_tag('icons/vegetarian.png') if  recipe.is_vegetarian? %>
+              </span>
             </td>
           </tr>
         </table>
+        <!-- Extended Information -->
+        <div class="information">
+          <h1>Ingredients</h1>
+          <ul>
+            <% recipe.ingredients.each do |ingredient| %>
+                <li>
+                  <%= link_to ingredient.name, ingredient_path(ingredient.id) %>
+                </li>
+            <% end %>
+          </ul>
+          <div class="edit-options">
+            <%= link_to 'Edit', edit_recipe_path(recipe), class: 'ui primary button' %>
+            <%= link_to 'Delete', recipe, method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>
+          </div>
+        </div>
       </li>
   <% end %>
 </ul>

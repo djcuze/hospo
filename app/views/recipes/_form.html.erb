@@ -18,6 +18,17 @@
     <%= f.text_field :description %>
   </div>
 
+    <div class="field">
+      <%= f.label :contains_gluten, "Contains Gluten" %>
+      <%= f.check_box :contains_gluten%>
+
+      <%= f.label :contains_dairy, "Contains Dairy" %>
+      <%= f.check_box :contains_dairy%>
+
+      <%= f.label :is_vegetarian, "Vegetarian" %>
+      <%= f.check_box :is_vegetarian%>
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
